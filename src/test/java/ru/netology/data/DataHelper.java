@@ -5,7 +5,6 @@ import lombok.SneakyThrows;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.ScalarHandler;
-import ru.netology.User.User;
 
 import java.sql.DriverManager;
 

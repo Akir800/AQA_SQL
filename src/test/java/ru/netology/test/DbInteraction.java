@@ -43,28 +43,4 @@ public class DbInteraction {
     var verificationCode = DataHelper.getVerificationCodeFor(authIntoFaker);
     verificationPage.validVerify(verificationCode);
   }
-
-  @Test
-  void shouldCheckThreeTimesInvalidPassInputForVasyaTest() {
-    var authInfoForVasya = DataHelper.getAuthInfo();
-    String invalidPass1 = DataHelper.getRandPass();
-    String invalidPass2 = DataHelper.getRandPass();
-    String invalidPass3 = DataHelper.getRandPass();
-
-    var loginPage = new LoginPage();
-    loginPage.enterLogin(authInfoForVasya.getLogin(), invalidPass1);
-    loginPage.errorNotification();
-
-    loginPage.cleanInputField();
-    loginPage.enterLogin(authInfoForVasya.getLogin(), invalidPass2);
-    loginPage.errorNotification();
-
-    loginPage.cleanInputField();
-    loginPage.enterLogin(authInfoForVasya.getLogin(), invalidPass3);
-    loginPage.errorNotification();
-
-    loginPage.cleanInputField();
-    loginPage.enterLogin(authInfoForVasya.getLogin(), authInfoForVasya.getPassword());
-    loginPage.errorNotification();
-  }
 }

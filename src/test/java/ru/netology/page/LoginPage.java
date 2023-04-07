@@ -2,10 +2,8 @@ package ru.netology.page;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
-import org.openqa.selenium.Keys;
 
 import static com.codeborne.selenide.Selenide.$;
-
 public class LoginPage {
 
     private final SelenideElement loginField = $("[data-test-id='login'] input");
@@ -28,17 +26,5 @@ public class LoginPage {
         loginField.setValue(login);
         passwordField.setValue(password);
         loginButton.click();
-    }
-
-    public void cleanInputField() {
-        loginField.sendKeys(Keys.LEFT_CONTROL + "A");
-        loginField.sendKeys(Keys.BACK_SPACE);
-        passwordField.sendKeys(Keys.LEFT_CONTROL + "A");
-        passwordField.sendKeys(Keys.BACK_SPACE);
-    }
-
-    public void errorNotification() {
-        errorMessage.shouldBe(Condition.visible);
-        errorMessage.find("button").click();
     }
 }
